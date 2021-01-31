@@ -15,3 +15,12 @@ export const margin = (top = 0, left = 0, right = 0, bottom = 0) => {
             marginBottom: bottom
     };
 };
+
+export const borderRadius = (radius = 0) => { return { borderRadius: radius };
+};
+
+export const borderStyle = (type = 'none') => { return { border: type } };
+
+export const BoxShadow = { boxShadow: '1px 3px 10px #0a0a0a' };
+
+export const RemoveFocusOutline = { outline: 'none' };

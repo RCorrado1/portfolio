@@ -19,6 +19,4 @@ let Title = (props) => {
     );
 };
 
-Title = Radium(Title);
-
-export default Title;
+export default Radium(Title);

@@ -5,3 +5,7 @@ export const getWidth = (width) => {
     if(width < 500 && width >= 300) return 's';
     return 'xs';
 };
+
+export const sizeChanges = (cb) => {
+    window.addEventListener('resize', () => cb(getWidth(window.innerWidth)), false);
+};

@@ -8,3 +8,15 @@ export const HEXColors = {
 export const RGBAColors = {
     black: 'rgba(0,0,0,.9)'
 };
+
+export const DefaultColors = [
+    'orange',
+    'green',
+    'blueviolet',
+    'aquamarine',
+    'crimson',
+    'darkorchid',
+    'deepskyblue',
+    'darkgray',
+    'silver'
+];

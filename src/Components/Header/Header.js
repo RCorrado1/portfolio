@@ -7,6 +7,7 @@ import List from '../Lists/List';
 import MenuBurger from '../MenuBurger';
 
 //Styles
+import { HEXColors } from '../../Styles/StylesColors';
 import { positionate } from '../../Styles/StylesDisplaying';
  
 //Render
@@ -22,13 +23,13 @@ let Header = (props) => {
     
     return  <header style={[
                 Position.fixed,
-                Position.axis,
-                { width: '100%'}
+                { 
+                    width: '100%',
+                    backgroundColor: HEXColors.white
+                }
             ]}>
                 <MenuBurger clicEvent={ handleOpenSidebar }/>
             </header>
 };
 
-Header = Radium(Header);
-
-export default Header;
+export default Radium(Header);

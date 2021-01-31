@@ -12,8 +12,11 @@ let MenuBurger = (props) => {
     const Style = {
         menu_style: {
             width: '30px',
-            height: '30px'
-        }
+            height: '30px',
+            ':hover': {
+                cursor: 'pointer'
+            }
+        },
     };
 
     return(
@@ -26,9 +29,9 @@ let MenuBurger = (props) => {
             ]}
             onClick={ props.clicEvent }
         >
-            <MenuBurgerBar />
-            <MenuBurgerBar />
-            <MenuBurgerBar />
+            <MenuBurgerBar backColor={ props.backColor }/>
+            <MenuBurgerBar backColor={ props.backColor }/>
+            <MenuBurgerBar backColor={ props.backColor }/>
         </div>
     )
 };
@@ -38,7 +41,7 @@ let MenuBurgerBar = (props) => {
         bar_styles: {
             height: '1px',
             width: props.width || '100%',
-            backgroundColor: HEXColors.white,
+            backgroundColor: props.backColor ?? HEXColors.black,
             borderRadius: '20px'
         }
     };
@@ -46,6 +49,4 @@ let MenuBurgerBar = (props) => {
     return <div style={ Style.bar_styles }></div>
 };
 
-MenuBurger = Radium(MenuBurger);
-
-export default MenuBurger;
+export default Radium(MenuBurger);

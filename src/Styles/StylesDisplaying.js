@@ -4,6 +4,9 @@ export const displaying = {
     },
     column:{
         flexDirection: 'column'
+    },
+    grid: {
+        display: 'grid'
     }
 };
 

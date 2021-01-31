@@ -12,16 +12,15 @@ let Subtitle = (props) => {
     };
 
     return(
-        <h1 style={[
+        <h2 style={[
             styles,
-            text_style.center_align,
+            text_style[props.align] ?? text_style.center_align,
+            props.styles,
             { color: props.colorText }
         ]}>
             { props.text }
-        </h1>
+        </h2>
     );
 };
 
-Subtitle = Radium(Subtitle);
-
-export default Subtitle;
+export default Radium(Subtitle);

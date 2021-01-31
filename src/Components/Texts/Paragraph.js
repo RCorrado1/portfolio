@@ -24,6 +24,4 @@ let Paragraph = (props) => {
     );
 };
 
-Paragraph = Radium(Paragraph);
-
-export default Paragraph;
+export default Radium(Paragraph);

@@ -1,24 +1,21 @@
-//React Router
-import {  BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-
 //Views
-import Header from './Components/Header/Header';
 import HomeView from './Views/Home';
+import Portfolio from './Views/Portfolio';
+
+//Components
+import Header from './Components/Header/Header';
+
+//Styles
+import { RGBAColors } from './Styles/StylesColors';
 
 //Render
 function App() {
   return (
-    <BrowserRouter>
+    <div style={{ backgroundColor: RGBAColors.black }}>
       <Header />
-      <Switch>
-        <Route path=''>
-          <HomeView />
-        </Route>
-        <Route path='contacto'>
-          <div>Hola</div>
-        </Route>
-      </Switch>
-    </BrowserRouter>
+      <HomeView />
+      <Portfolio />
+    </div>
   );
 }
 
