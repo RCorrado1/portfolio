@@ -7,10 +7,13 @@ export const displaying = {
     },
     grid: {
         display: 'grid'
+    },
+    row: {
+        flexDirection: 'row'
     }
 };
 
-export const positionate = (top = 0, left = 0, right = 0, bottom = 0) => {
+export const positionate = (top = 0, left = 0, right = 0, bottom = 0, index = 0) => {
     return {
         absolute: {
             position: 'absolute'
@@ -18,11 +21,20 @@ export const positionate = (top = 0, left = 0, right = 0, bottom = 0) => {
         fixed: {
             position: 'fixed'
         },
+        relative: {
+            position: 'relative'
+        },
+        sticky: {
+            position: 'sticky'
+        },
         axis: {
             top: top,
             left: left,
             right: right,
             bottom: bottom
+        },
+        index: {
+            zIndex: index
         }
     };
 };

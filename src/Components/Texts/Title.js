@@ -2,18 +2,19 @@
 import React from 'react';
 import Radium from 'radium';
 
-//Render
 let Title = (props) => {
-    const styles = {
+    const Styles = {
         fontSize: '1.5rem',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: props.textAlign || 'left',
+        color: props.colorText,
+        ":hover": {
+            cursor: props.hovered
+        }
     };
 
     return(
-        <h1 style={[
-            styles,
-            { color: props.colorText }
-        ]}>
+        <h1 style={ Styles } onClick={ props.event }>
             { props.text }
         </h1>
     );

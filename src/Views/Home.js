@@ -6,37 +6,44 @@ import Radium from 'radium';
 import Title from '../Components/Texts/Title';
 import Subtitle from '../Components/Texts/Subtitle';
 import Paragraph from '../Components/Texts/Paragraph';
+import ModalAbout from '../Components/Modal/ModalAbout';
 import ButtonRounded from '../Components/Button/ButtonRounded';
+import BlurredBackground from '../Components/Background/BlurredBackground';
+
+//Image
+import background from '../Assets/background.jpg';
 
 //Styles
-import { sizes } from '../Styles/StylesSizes';
 import { HEXColors } from '../Styles/StylesColors';
-import { displaying } from '../Styles/StylesDisplaying';
 import { alignElement } from '../Styles/StylesAlignment';
-import ModalAbout from '../Components/Modal/ModalAbout';
+import { displaying, positionate } from '../Styles/StylesDisplaying';
 
 //Render
 let HomeView = (props) => {
-    //State
     const [openAbout, setOpenedAbout] = useState(false);
 
     return(
-        <div style={[
-                displaying.flex,
-                displaying.column,
-                alignElement.center,
-                sizes.h_100,
-            ]}
-            id='home'
-        >
-            <Title text='Raúl Corrado' colorText={ HEXColors.white }/>
-            <Subtitle text='Full Stack Developer' colorText={ HEXColors.white} />
-            <Paragraph alignment='center' fontSize='12px' colorText={ HEXColors.white } 
-                text='Analista de Sistemas | Profesor | Geek Profesional' />
-            <ButtonRounded event={ e => setOpenedAbout(true) }
-                text='Saber más sobre mí' />
-            <ModalAbout show={ openAbout } event={ e => setOpenedAbout(false) }/>
-        </div>
+        <section id='section-home' style={{ height: '100vh' }}>
+            <BlurredBackground background={ background }/>
+            <div style={[
+                    displaying.flex,
+                    displaying.column,
+                    alignElement.center,
+                    positionate().relative,
+                    positionate(0, 0, 0, 0, 1).index,
+                    { height: '100%' }
+                ]}
+            >
+                <Title text='Raúl Corrado' colorText={ HEXColors.white }/> 
+                <Subtitle text='Full Stack Developer' colorText={ HEXColors.white} /> 
+                <Paragraph alignment='center' fontSize='12px' 
+                    colorText={ HEXColors.white } 
+                    text='Analista de Sistemas | Profesor | Geek Profesional' /> 
+                <ButtonRounded event={ e => setOpenedAbout(true) }
+                    text='Saber más sobre mí' /> 
+                <ModalAbout show={ openAbout } event={ e => setOpenedAbout(false) }/>
+            </div>
+        </section>
     );
 };
 

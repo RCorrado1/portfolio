@@ -1,11 +1,10 @@
+//React && Functional
 import Radium from 'radium';
 import React, { useEffect, useState } from 'react';
 
 let Link = (props) => {
-    //State
     const [link, setLink] = useState();
 
-    //Styles
     const Style = {
         base: {
             color: 'inherit',
@@ -18,7 +17,6 @@ let Link = (props) => {
         }
     };
 
-    //Effect al actualizar props
     useEffect(() => {
         if(typeof props.link === 'string') setLink(props.link);
     }, [props.link]);

@@ -1,9 +1,9 @@
+//React && Functional
 import React from 'react';
 import Radium from 'radium';
 
 let Image = (props) => {
-    //Styles
-    let styles = {
+    const Styles = {
         width: props.width,
         height: props.height,
         display: props.display,
@@ -13,7 +13,8 @@ let Image = (props) => {
 
     return <img src={ props.src }
         alt={ props.alt }
-        style={ styles } />
+        style={ Styles }
+        onClick={ props.event }/>
 };
 
 export default Radium(Image);

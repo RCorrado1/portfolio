@@ -5,7 +5,6 @@ import React from 'react';
 //Styles
 import { text_style } from '../../Styles/StylesText';
 
-//Render
 let Paragraph = (props) => {
     const text_styling = (props.alignment === 'center')
         ? text_style.center_align : (props.alignment === 'right')

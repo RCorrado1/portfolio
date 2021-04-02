@@ -8,29 +8,26 @@ import { positionate } from '../../Styles/StylesDisplaying';
 import { BoxShadow, borderRadius, padding } from '../../Styles/StyleBox';
 
 let Modal = (props) => {
-    //State
     const [width, setWidth] = useState();
 
-    //Effect al renderizar
+    const Styles = {
+        maxWidth: props.maxWidth ? props.maxWidth : width === 's' || width === 'xs' ? '300px' : '500px',
+        width: width === 's' ? '90%' : width === 'm' ? '70%' : '60%',
+        backgroundColor: props.backColor ?? HEXColors.white
+    };
+
     useEffect(() => {
         setWidth(getWidth(window.innerWidth));
         sizeChanges(setWidth);
     }, []);
 
-    //Styles
-    const Styles = {
-        maxWidth: width === 's' || width === 'xs' ? '300px' : '500px',
-        width: width === 's' ? '90%' : width === 'm' ? '50%' : '30%',
-        backgroundColor: HEXColors.white
-    };
-
     return(
         <div style={[
             Styles,
             BoxShadow,
-            borderRadius('30px'),
+            borderRadius(props.borderRadius ?? '30px'),
             padding('10px', '10px', '10px', '10px'),
-            positionate(0,0,0,0).absolute,
+            positionate(0,0,0,0).fixed,
             props.style 
         ]}>
             { props.content }

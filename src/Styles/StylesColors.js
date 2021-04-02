@@ -2,11 +2,13 @@ export const HEXColors = {
     black: '#000',
     white: '#fff',
     dirty_white: '#fafafa',
-    dark_grey: '1b1b1b'
+    light_grey: '#d0d0d0',
+    dark_grey: '#1b1b1b'
 };
 
 export const RGBAColors = {
-    black: 'rgba(0,0,0,.9)'
+    black: 'rgba(0,0,0,.9)',
+    cyan: 'rgba(0,255,255,.7)'
 };
 
 export const DefaultColors = [
@@ -18,5 +20,6 @@ export const DefaultColors = [
     'darkorchid',
     'deepskyblue',
     'darkgray',
-    'silver'
+    'silver',
+    'cyan'
 ];

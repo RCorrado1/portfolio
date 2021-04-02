@@ -41,7 +41,7 @@ let MenuBurgerBar = (props) => {
         bar_styles: {
             height: '1px',
             width: props.width || '100%',
-            backgroundColor: props.backColor ?? HEXColors.black,
+            backgroundColor: props.backColor ?? HEXColors.white,
             borderRadius: '20px'
         }
     };

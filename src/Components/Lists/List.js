@@ -1,6 +1,5 @@
 //React && Functional
-import { getWidth, sizeChanges } from '../../Functions/Sizes';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Radium from 'radium';
 
 //Components
@@ -15,24 +14,21 @@ import { margin } from '../../Styles/StyleBox';
 
 //Render
 let List = (props) => {
-    const Styles = {
-        height: '100vh'
-    };
-
     return(
         <ul style={[
-                Styles,
                 displaying.flex,
                 displaying.column,
                 alignElement.min_spacing_h,
                 alignElement.start_v,
-                positionate(0, 0, 0, 0).fixed,
+                positionate(0, 0, 0, 0, 2).index,
+                positionate().fixed,
                 margin(),
                 { 
                     color: HEXColors.white,
                     listStyle: 'none',
                     backgroundColor: RGBAColors.black,
-                    width: '100%'
+                    width: '100%',
+                    height: '100vh'
                 }
             ]}
         >

@@ -1,3 +1,4 @@
+//React && Functional
 import React from 'react';
 import Radium from 'radium';
 

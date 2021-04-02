@@ -13,19 +13,18 @@ import { positionate } from '../../Styles/StylesDisplaying';
 //Render
 let Header = (props) => {
     const [openSidebar, openingSidebar] = useState(false);
-    const Position = positionate(0, 0, 0, 0);
+
+    const Position = positionate(0, 0, 0, 0, 2);
 
     const handleOpenSidebar = () => openingSidebar(!openSidebar);
 
-    if(openSidebar) 
-        return  <List items={ ['Home', 'Portfolio'] }
-                    clicEvent={ handleOpenSidebar }/>
-    
+    if(openSidebar) return  <List items={ ['Home', 'Portfolio'] } clicEvent={ handleOpenSidebar }/>
     return  <header style={[
                 Position.fixed,
+                Position.index,
                 { 
                     width: '100%',
-                    backgroundColor: HEXColors.white
+                    backgroundColor: HEXColors.black
                 }
             ]}>
                 <MenuBurger clicEvent={ handleOpenSidebar }/>

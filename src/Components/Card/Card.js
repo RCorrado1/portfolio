@@ -1,32 +1,32 @@
-//React && Functional
 import React, { useEffect, useState } from 'react';
 import Radium from 'radium';
 
 //Styles
 import { text_style } from '../../Styles/StylesText';
-import { borderRadius, padding } from '../../Styles/StyleBox';
-import { HEXColors, DefaultColors } from '../../Styles/StylesColors';
+import { HEXColors } from '../../Styles/StylesColors';
+import { borderRadius, padding, BoxShadow } from '../../Styles/StyleBox';
 
-let Badge = (props) => {
-    const [colorBadge, setColor] = useState();
+let Card = (props) => {
+    const [colorCard, setColor] = useState();
 
     useEffect(() => {
-        setColor(props.color ?? Math.floor(Math.random() * DefaultColors.length));
+        setColor(props.color ?? HEXColors.white);
     }, []);
 
     return(
         <span style={[
+                BoxShadow,
                 borderRadius('20px'),
-                padding('5px', '5px', '5px', '5px'),
+                padding('15px', '15px', '15px', '15px'),
                 text_style.center_align,
                 props.styles,
                 {
                     color: HEXColors.black,
-                    minWidth: props.minWidth ?? '100px',
+                    width: '120px',
                     display: 'inline-block',
-                    fontSize: props.fontSize ?? '15px',
+                    fontSize: props.fontSize ?? '10px',
                     fontWeight: 'bolder',
-                    backgroundColor: DefaultColors[colorBadge]
+                    backgroundColor: colorCard
                 }
             ]}
             onClick={ props.event }
@@ -36,4 +36,4 @@ let Badge = (props) => {
     );
 };
 
-export default Radium(Badge);
+export default Radium(Card);

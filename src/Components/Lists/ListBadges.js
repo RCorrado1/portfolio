@@ -1,3 +1,4 @@
+//React && Functional
 import Radium from 'radium';
 import React, { useState, useEffect } from 'react';
 import { getWidth, sizeChanges } from '../../Functions/Sizes';
@@ -13,17 +14,14 @@ import { displaying } from '../../Styles/StylesDisplaying';
 import { alignElement } from '../../Styles/StylesAlignment';
 
 let ListBadges = (props) => {
-    //State
     const [width, setWidth] = useState();
     const [list, setList] = useState([]);
 
-    //Effect al renderizar
     useEffect(() => {
         setWidth(getWidth(window.innerWidth));
         sizeChanges(setWidth);
     }, []);
 
-    //Effect al recibir datos del padre
     useEffect(() => {
         if(Array.isArray(props.list)) setList(props.list);
     }, [props.list]);
