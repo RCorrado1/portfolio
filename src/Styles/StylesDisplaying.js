@@ -10,6 +10,9 @@ export const displaying = {
     },
     row: {
         flexDirection: 'row'
+    },
+    none: {
+        display: 'none'
     }
 };
 

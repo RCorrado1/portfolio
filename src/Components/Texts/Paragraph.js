@@ -13,6 +13,7 @@ let Paragraph = (props) => {
     return(
         <p style={[
             text_styling,
+            props.styles,
             { 
                 color: props.colorText,
                 fontSize: props.fontSize

@@ -1,0 +1,31 @@
+#home::before, #codes::before {
+    content: '';
+    width: 120%;
+    height: 100%;
+    position: absolute;
+}
+
+#home::before {
+    background-color: #131111;
+    transform: rotate(2deg);
+    top: 11%;
+}
+
+#codes::before {
+    background-color: #BF3CF3;
+    transform: rotate(-2deg);
+    top: -5%;
+    left: -5%;
+    min-height: 150vh;
+}
+
+@media screen and (max-width: 768px) {
+    #codes {
+        height: 220vh;
+    }
+    #codes::before {
+        top: -1%;
+        min-height: 250vh;
+        left: -10%;
+    }
+}

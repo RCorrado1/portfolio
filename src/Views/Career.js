@@ -17,6 +17,12 @@ import { DefaultColors, HEXColors } from '../Styles/StylesColors';
 let Career = (props) => {
     const [openCareer, setOpenedCareer] = useState();
 
+    const Styles = {
+        ':hover': {
+            cursor: 'pointer'
+        }
+    }
+
     const handleXP = (id) => setOpenedCareer(openCareer !== id ? id : null);
 
     return(
@@ -37,7 +43,7 @@ let Career = (props) => {
                                     minWidth='auto'
                                     color={ DefaultColors.indexOf('silver') }
                                     text={ xp.year }
-                                    styles={{ margin: '5px' }}
+                                    styles={[ Styles, {margin: '5px'} ]}
                                     event={ e => handleXP(xp.id) }/>
                             );
                     }))     }
@@ -46,12 +52,14 @@ let Career = (props) => {
                     ?   <div style={{ padding: '2px' }}>
                             <Paragraph text={ Experiences[openCareer].mainAction }
                                 colorText={ HEXColors.black } 
-                                fontSize={13}
+                                fontSize={14}
+                                styles={{ fontWeight: 'bold' }}
                                 alignment='center' />
                             {   Experiences[openCareer].hasOwnProperty('secondaryAction') 
                                     ?   <Paragraph text={ Experiences[openCareer].secondaryAction }
                                             colorText={ HEXColors.black } 
-                                            fontSize={13}
+                                            fontSize={14}
+                                            styles={{ fontWeight: 'bold' }}
                                             alignment='center' />
                                     :   null    }
                         </div>

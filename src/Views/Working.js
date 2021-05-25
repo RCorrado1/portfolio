@@ -1,7 +1,7 @@
 //React && Functional
+import Radium from 'radium';
 import React, { useEffect, useState } from 'react';
 import { animateString } from '../Functions/Strings';
-import Radium from 'radium';
 
 //Image
 import background from '../Assets/background.jpg';

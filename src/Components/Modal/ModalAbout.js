@@ -11,12 +11,12 @@ import ImageRounded from '../Image/ImageRounded';
 import ButtonRounded from '../Button/ButtonRounded';
 
 //Image
-import me from '../../Assets/aboutme.jpg';
+import me from '../../Assets/aboutme.png';
 
 //Styles
 import { HEXColors } from '../../Styles/StylesColors';
-import { displaying } from '../../Styles/StylesDisplaying';
 import { alignElement } from '../../Styles/StylesAlignment';
+import { displaying, positionate } from '../../Styles/StylesDisplaying';
 
 
 //Render
@@ -37,10 +37,11 @@ let ModalAbout = (props) => {
     return(
         <Modal content={
             <div style={[
-                displaying.flex,
-                displaying.column,
-                alignElement.center
-            ]}>
+                    displaying.flex,
+                    displaying.column,
+                    alignElement.center
+                ]}
+            >
                 <ImageRounded src={ me }
                     alt='me'
                     width='90px'

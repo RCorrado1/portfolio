@@ -1,36 +1,47 @@
 import Radium from 'radium';
-import React, { useEffect, useState } from 'react';
-import { getWidth, sizeChanges } from '../../Functions/Sizes';
+import React from 'react';
 
 //Styles
-import { HEXColors } from '../../Styles/StylesColors';
-import { positionate } from '../../Styles/StylesDisplaying';
+import '../../Styles/css/Modal.css';
+import { alignElement } from '../../Styles/StylesAlignment';
+import { HEXColors, RGBAColors } from '../../Styles/StylesColors';
+import { positionate, displaying } from '../../Styles/StylesDisplaying';
 import { BoxShadow, borderRadius, padding } from '../../Styles/StyleBox';
 
 let Modal = (props) => {
-    const [width, setWidth] = useState();
-
     const Styles = {
-        maxWidth: props.maxWidth ? props.maxWidth : width === 's' || width === 'xs' ? '300px' : '500px',
-        width: width === 's' ? '90%' : width === 'm' ? '70%' : '60%',
-        backgroundColor: props.backColor ?? HEXColors.white
+        content: {
+            backgroundColor: props.backColor ?? HEXColors.white
+        },
+        container: {
+            backgroundColor: props.wrapperColor ?? RGBAColors.black,
+            height: '100vh',
+            width: '100%'
+        }
     };
-
-    useEffect(() => {
-        setWidth(getWidth(window.innerWidth));
-        sizeChanges(setWidth);
-    }, []);
+    const position = positionate(0,0,0,0,2);
 
     return(
         <div style={[
-            Styles,
-            BoxShadow,
-            borderRadius(props.borderRadius ?? '30px'),
-            padding('10px', '10px', '10px', '10px'),
-            positionate(0,0,0,0).fixed,
-            props.style 
+            Styles.container,
+            position.fixed,
+            position.index,
+            position.axis,
+            displaying.flex,
+            alignElement.center
         ]}>
-            { props.content }
+            <div style={[
+                    Styles.content,
+                    BoxShadow,
+                    borderRadius(props.borderRadius ?? '30px'),
+                    positionate(0,0,0,0).relative,
+                    padding('10px', '10px', '10px', '10px'),
+                    props.style 
+                ]}
+                className='modal-content'
+            >
+                { props.content }
+            </div>
         </div>
     );
 };

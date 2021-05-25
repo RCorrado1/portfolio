@@ -8,6 +8,7 @@ import { text_style } from '../../Styles/StylesText';
 let ListItem = (props) => {
     const styles = {
         fontSize: '20px',
+        textTransform: 'capitalize',
         ':hover': {
             cursor: 'pointer'
         }

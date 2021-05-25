@@ -17,10 +17,9 @@ let ButtonRounded = (props) => {
             backgroundColor: props.backColor ?? HEXColors.white,
             color: props.textColor ?? HEXColors.black,
             ':hover' : {
-                transition: 'background-color 1s ease, color 1.05s ease, border .9s',
+                transition: 'background-color 1s ease, color 1.05s ease',
                 backgroundColor: 'transparent',
                 color: props.hoverColor ?? HEXColors.white,
-                border: borderStyle(`1px solid ${HEXColors.white}`),
                 cursor: 'pointer'
             },
             ':focus': RemoveFocusOutline,

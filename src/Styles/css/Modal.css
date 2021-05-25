@@ -1,0 +1,10 @@
+@import './keyframes.css';
+@import './variables.css';
+
+.modal-content {
+    right: -100%;
+    animation: slideInFromRight 3s ease 0s 1 normal forwards;
+    max-width: var(--max-width);
+    width: var(--width);
+    box-sizing: border-box;
+}

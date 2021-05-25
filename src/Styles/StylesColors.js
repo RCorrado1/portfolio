@@ -3,7 +3,9 @@ export const HEXColors = {
     white: '#fff',
     dirty_white: '#fafafa',
     light_grey: '#d0d0d0',
-    dark_grey: '#1b1b1b'
+    dark_grey: '#1b1b1b',
+    mate_black: '#131111',
+    purple: '#BF3CF3'
 };
 
 export const RGBAColors = {

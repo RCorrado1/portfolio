@@ -27,6 +27,12 @@ let Portfolio = (props) => {
     const [isModalOpen, setModal] = useState(false);
     const [jobOpened, setJob] = useState(RealizedJobs[0]);
 
+    const Styles = {
+        ':hover': {
+            cursor: 'pointer'
+        }
+    }
+
     const openImage = (image = null) => {
         setImage(image)
         setModal(!isModalOpen);
@@ -38,7 +44,7 @@ let Portfolio = (props) => {
     }, []);
 
     return(
-        <div style={[
+        <section id="portfolio" style={[
             padding('25px', '25px', '25px', '25px'),
             { backgroundColor: HEXColors.white }
         ]}>
@@ -51,7 +57,7 @@ let Portfolio = (props) => {
             >
                 {   RealizedJobs.map(job => {
                         return  <Badge text={ job.alias } 
-                                    styles={{ margin: '5px 10px'}}
+                                    styles={[ Styles, {margin: '5px 10px'} ]}
                                     event={ e => setJob(job) }/>
                     })  }
             </div>
@@ -106,7 +112,7 @@ let Portfolio = (props) => {
                     &&  <ModalImage image={ imageModal }
                             jobOpenedStyle={ jobOpened.style }
                             event={ e => openImage(jobOpened.resource) } />    }
-        </div>
+        </section>
     );
 };
 

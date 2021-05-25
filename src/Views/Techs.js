@@ -6,6 +6,8 @@ import { Techs } from '../Variables/VariablesForTechs';
 import { getWidth, sizeChanges } from '../Functions/Sizes';
 
 //Components
+import Arrows from '../Components/Arrows';
+import SpanTech from '../Components/SpanTech';
 import Title from '../Components/Texts/Title';
 
 //Styles
@@ -19,6 +21,7 @@ let TechsView = (props) => {
     const [width, setWidth] = useState();
     const [index, setIndex] = useState(0);
     const [techs, setTechs] = useState([]);
+    const [paddingValue, setPadding] = useState(padding('4.5rem', '25px', '25px', '5rem'));
 
     const handlePrev = () => {
         let new_index = index > 0 ? index - 1 : (Techs.length - max),
@@ -41,6 +44,8 @@ let TechsView = (props) => {
 
     useEffect(() => {
         setMax(width === 'l' || width === 'xl' ? 6 : width === 'm' ? 3 : 2);
+        let padding_top = (width !== 'l' && width !== 'xl') ? '45rem' : '4.5rem';
+        setPadding(padding(padding_top, '25px', '25px', '25px'));
     }, [width]);
 
     useEffect(() => {
@@ -48,8 +53,8 @@ let TechsView = (props) => {
     }, [max]);
     
     return(
-        <div style={[
-            padding('25px', '25px', '25px', '25px'),
+        <section id="techs" style={[
+            paddingValue,
             { backgroundColor: HEXColors.light_grey }
         ]}>
             <Title text='Tecnologías que manejo' />
@@ -57,7 +62,7 @@ let TechsView = (props) => {
                 displaying.flex,
                 alignElement.center
             ]}>
-                <span onClick={ handlePrev }> { '<' } </span>
+                <Arrows direction="left" event={ handlePrev } />
                 <div style={[
                     displaying.flex, 
                     alignElement.spacing_h,
@@ -67,20 +72,11 @@ let TechsView = (props) => {
                         overflow: 'hidden'
                     }
                 ]}>
-                    {   techs.map(tech => {
-                            return (
-                                <span className={ `${tech} colored` }
-                                    style={[
-                                        margin(0, '15px', '15px', 0),
-                                        alignElement.spacing_h,
-                                        { fontSize: '60px' }
-                                    ]}></span>
-                            )
-                        })  }
+                    {   techs.map((tech, index) => { return <SpanTech tech={ tech } key={index} /> })  }
                 </div>
-                <span onClick={ handleNext }> { '>' } </span>
+                <Arrows event={ handleNext } direction="right" />
             </div>
-        </div>
+        </section>
     );
 };
 

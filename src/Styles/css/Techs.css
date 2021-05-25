@@ -1,0 +1,6 @@
+@import url('./keyframes.css');
+
+.span-tech {
+    opacity: 0;
+    animation: fadeIn 1s ease 0s 1 normal forwards;
+}

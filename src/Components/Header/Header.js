@@ -9,16 +9,24 @@ import MenuBurger from '../MenuBurger';
 //Styles
 import { HEXColors } from '../../Styles/StylesColors';
 import { positionate } from '../../Styles/StylesDisplaying';
+import { useEffect } from 'react/cjs/react.development';
  
 //Render
 let Header = (props) => {
+    const [items, setItems] = useState([]);
     const [openSidebar, openingSidebar] = useState(false);
 
-    const Position = positionate(0, 0, 0, 0, 2);
+    const Position = positionate(0, 0, 0, 0, 9);
 
     const handleOpenSidebar = () => openingSidebar(!openSidebar);
 
-    if(openSidebar) return  <List items={ ['Home', 'Portfolio'] } clicEvent={ handleOpenSidebar }/>
+    useEffect(() => {
+        let section = document.querySelectorAll('section');
+        section.forEach(sec => setItems(items => ([...items, sec.getAttribute('id') ])));
+    }, [])
+
+    if(openSidebar && items.length > 0) 
+        return  <List items={ items } clicEvent={ handleOpenSidebar }/>
     return  <header style={[
                 Position.fixed,
                 Position.index,

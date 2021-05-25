@@ -5,6 +5,9 @@ export const sizes = {
     h_100: {
         height: '100vh'
     },
+    h_150: {
+        height: '150vh'
+    },
     h_50: {
         height: '50vh'  
     },

@@ -14,6 +14,7 @@ import BlurredBackground from '../Components/Background/BlurredBackground';
 import background from '../Assets/background.jpg';
 
 //Styles
+import '../Styles/css/effects.css';
 import { HEXColors } from '../Styles/StylesColors';
 import { alignElement } from '../Styles/StylesAlignment';
 import { displaying, positionate } from '../Styles/StylesDisplaying';
@@ -22,15 +23,24 @@ import { displaying, positionate } from '../Styles/StylesDisplaying';
 let HomeView = (props) => {
     const [openAbout, setOpenedAbout] = useState(false);
 
+    const position = positionate(0, 0, 0, 0, 1);
+
+    const styles = { 
+        height: '100vh', 
+        marginBottom: '5rem',
+        backgroundColor: HEXColors.mate_black,
+    }
+
     return(
-        <section id='section-home' style={{ height: '100vh' }}>
-            <BlurredBackground background={ background }/>
+        <section id='home' style={ styles }>
+            <BlurredBackground background={ background } />
             <div style={[
                     displaying.flex,
                     displaying.column,
                     alignElement.center,
-                    positionate().relative,
-                    positionate(0, 0, 0, 0, 1).index,
+                    position.relative,
+                    position.index,
+                    position.axis,
                     { height: '100%' }
                 ]}
             >
@@ -41,8 +51,8 @@ let HomeView = (props) => {
                     text='Analista de Sistemas | Profesor | Geek Profesional' /> 
                 <ButtonRounded event={ e => setOpenedAbout(true) }
                     text='Saber más sobre mí' /> 
-                <ModalAbout show={ openAbout } event={ e => setOpenedAbout(false) }/>
             </div>
+            <ModalAbout show={ openAbout } event={ e => setOpenedAbout(false) }/>
         </section>
     );
 };
